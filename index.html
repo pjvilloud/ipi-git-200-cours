@@ -1,0 +1,611 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>IPI - Présentation de Git</title>
+    
+    <meta name="description" content="" />
+    <meta name="author" content="Pierre-Julien VILLOUD" />
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/idea.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.13.0/gitgraph.min.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="my-navbar">
+  <a class="navbar-brand" href="index.html">
+    <img src="img/ipi.jpg" width="30" height="30" alt=""> Cours Git 200
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav nav-pills mr-auto">
+      
+    </ul>
+    <span class="navbar-text">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <!--a class="btn btn-primary" href="https://github.com/pjvilloud/ipi-java-350-delivery-ex" target="_blank"><i class="fa fa-icon fa-gamepad"></i></a-->
+            &nbsp;
+            <a class="btn btn-primary" href="mailto:pjvilloud@protonmail.com"><i class="fa fa-icon fa-envelope"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://github.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-github"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://linkedin.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-linkedin"></i></a>&nbsp;
+            <a class="btn btn-primary" href="#" id="numSlide">1</a>
+        </div>
+    </span>
+  </div>
+</nav>
+<div class="progress">
+  <div id="progress" class="progress-bar" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<canvas id="gitGraphLocal"></canvas>
+<canvas id="gitGraphRemote"></canvas>
+
+<div class="container-fluid" id="impress">
+
+    <div id="accueil" class="step slide" data-rel-x="0" data-y=0>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container text-center">
+            <h1 class="display-3">Bienvenue !</h1>
+            <p class="lead">
+                <h2>Pierre-Julien VILLOUD</h2>
+                <div class="big-top-margin">
+                    <img src="img/pjvilloud.jpg" class="img-bienvenue rounded mx-auto d-block" alt="Pierre-Julien VILLOUD">
+                </div>
+                <div class="big-top-margin">
+                    <h3><i class="fa fa-icon fa-envelope-square"></i>&nbsp;<a href="mailto:pjvilloud@protonmail.com">pjvilloud@protonmail.com</a></h3>
+                    <h3><i class="fa fa-icon fa-github-square"></i>&nbsp;<a href="https://github.com/pjvilloud" target="_blank">https://github.com/pjvilloud</a></h3>
+                    <h3><i class="fa fa-icon fa-linkedin-square"></i>&nbsp;<a href="https://linkedin.com/pjvilloud" target="_blank">https://linkedin.com/pjvilloud</a></h3>
+                    <h3><i class="fa fa-icon fa-globe"></i>&nbsp;<a href="http://pjvilloud.github.io" target="_blank">http://pjvilloud.github.io</a></h3>
+                </div>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <div id="introduction" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Introduction</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Dans ce cours, nous allons parler de <strong>système de gestion de version</strong> de manière générale, et plus précisément de <strong>Git</strong>, qui est le plus répandu aujourd'hui.
+            </div>
+          </div>
+          <div class="container small-font  big-top-margin">
+            <img src="img/Git-Logo-2Color.png" alt="">
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-vcs" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Système de gestion de version</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Un <strong>système de gestion de version</strong> est un logiciel permmetant aux développeurs de travailler ensemble sur un code source commun, tout en gardant un historique de leur travail, et ce tout au long du développement.
+            </div>
+          </div>
+          <div class="container small-font  big-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">Les développeurs peuvent travailler simultanément (même sur des fichiers communs) sans qu'ils voient leurs modifications écrasées.</li>
+                <li class="list-group-item">Il est possible de travailler simultanément sur des <em>versions</em> différentes du code.</li>
+                <li class="list-group-item">Il est possible de revenir à des version antérieures du code à tout moment</li>
+                <li class="list-group-item">Il est possible de savoir qui a effectuer telle ou telle modification, quand, où est pourquoi.</li>
+            </ul>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font big-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il existe deux types de <strong>système de gestion de version</strong>, le système <strong>centralisé</strong> ou <strong>décentralisé</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-cvcsdvcs" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Système centralisé <em>vs</em> Système décentralisé</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Le système <strong>centralisé</strong> (CVS, SVN) oblige à avoir un <strong>serveur principal</strong> tout le temps accessible tandis que le <strong>système décentralisé</strong> (Git, Mercurial...) permet de travailler sans, même si un serveur central permet tout de même la mise en commun du code.
+            </div>
+          </div>
+          <div class="container-fluid small-font  little-top-margin row">
+            <div class="col-6">
+                <img src="img/cvcs.png" height="500" alt="">
+            </div>
+            <div class="col-6">
+                <img src="img/dvcs.png" height="500" alt="">
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font little-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;De nos jours, ce sont les systèmes décentralisés qui sont le plus souvent utilisés (du moins pour les nouveaux projets) car plus souples et avec des fonctionnalités plus poussées.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-installation" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">Installation</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Git est disponible sur les Linux, Mac et Windows et peut être utilisé directement en ligne de commande ou par l'intermédiaire d'un logiciel graphique.
+                    </div>
+                </div>
+            </div>
+            <div class="container big-top-margin">
+                <ul class="list-group">
+                    <li class="list-group-item">Windows ou Mac : <a href="https://desktop.github.com/" target="_blank">Git Desktop</a></li>
+                    <li class="list-group-item">Linux : <a href="https://git-scm.com/downloads" target="_blank">Git</a> ou <code>sudo apt-get install git</code></li>
+                    <li class="list-group-item"><a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a></li>
+                    <li class="list-group-item">Dans votre IDE...</li>
+                </ul>
+            </div>
+            <div class="container-fluid">
+                <div class="alert alert-primary small-font big-top-margin" role="alert">
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Nous verrons l'utilisation en ligne de commande, permettant de faire toutes les commandes possibles, ainsi que l'utilisation avec une application graphique, permettant d'effectuer les actions les plus courantes.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="introduction-configuration" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">Configuration</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Commençons par quelques opérations de configuration avec l'outil en ligne de commande.
+                    </div>
+                </div>
+                <div class="container big-top-margin">
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>git config --global user.name "Votre nom"</code></li>
+                        <li class="list-group-item"><code>git config --global user.email "Votre email"</code></li>
+                        <li class="list-group-item"><code>git config --global color.ui auto</code></li>
+                    </ul>
+                </div>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font big-top-margin" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les deux premières commandes permettront de mieux vous identifier lors de vos différentes actions tandis que la dernière permet d'avoir un affichage coloré au niveau de la ligne de commande.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="repositories" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les <em>Repository</em></h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Un <strong>Repository</strong> rassemble la totalité des fichiers et répertoires associés à un projet, ainsi que l'historique de toutes les modifications effectuées (appellées <strong>commits</strong>). Les fichiers contenant les données sur l'historique sont situées dans le répertoire <code>.git</code>.
+            </div>
+          </div>
+          <div class="container little-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">Créer un nouveau <em>repository</em> local dans le répertoire courant</li>
+                <li class="list-group-item"><code>git init <em>nom_du_repository</em></code></li>
+            </ul>
+            <ul class="list-group little-top-margin">
+                <li class="list-group-item">Télécharger un <em>repository</em> existant</li>
+                <li class="list-group-item"><code>git clone <em>url_du_repository</em></code></li>
+            </ul>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-warning small-font" role="alert" >
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;<span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git init ipi-git-local</code>'>Créer en ligne de commande un repository nommé <code>ipi-git-local</code></span>, <span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true"
+                data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-title="Création de repository sur Github" data-content='<ol>
+  <li>Dans le coin en haut à droite de votre avatar, cliquer sur <span class="fa-icon fa-icon-plus"></span> et sélectionner <strong>New repository</strong>.</li>
+  <li>Nommer votre repository <code>ipi-git-github</code>.</li>
+  <li>Ecrire une description sommaire.</li>
+  <li>Sélectionner <strong>Initialize this repository with a README</strong>.</li>
+</ol>
+
+<p class="text-center"><img src="https://guides.github.com/activities/hello-world/create-new-repo.png" alt="new-repo-form" height="500"></p>
+
+<p>Cliquer sur <strong>Create repository</strong>.'>puis créer un repository sur github nommé <code>ipi-git-github</code></span>.
+            </div>
+            <div id="gitClone" class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;<span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/votreuser/ipi-git-github.git</code>'>Cloner le repository <code>ipi-git-github</code></span> ainsi que celui <span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/pjvilloud/ipi-git-200-ex.git</code>'>situé à l'adresse <code>https://github.com/pjvilloud/ipi-git-200-ex</code></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="changements" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Effectuer des changements</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Lorsque vous allez effectuer des changements sur le code de votre projet, vous allez vouloir les partager avec les autres. De la même manière, vous aller vouloir récupérer les changements effectués par les autres.
+            </div>
+          </div>
+          <div class="container-fluid text-left small-font little-top-margin">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">1 - Faire des changements</li>
+                        <li class="list-group-item">2 - Préparer les changements pour le versioning</li>
+                        <li class="list-group-item">3 - Enregistrer les changements dans votre repository</li>
+                        <li class="list-group-item">4 - Envoyer ces changements sur le repository central</li>
+                        <li class="list-group-item">5 - Faire des changements</li>
+                        <li class="list-group-item">6 - Voir les modifications qui n'ont pas été enregistrées dans le repository</li>
+                        <li class="list-group-item">7 - Voir les différences avec le repository</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>villoud.txt</code></em></li>
+                        <li class="list-group-item"><code>git add villoud.txt</code></li>
+                        <li class="list-group-item" id="masterlocal1stcommit"><code>git commit -m "Création du fichier villoud.txt"</code></li>
+                        <li class="list-group-item" id="masterremote1stpush"><code>git push</code></li>
+                        <li class="list-group-item"><em>J'ajoute mon nom et mon prénom dans le fichier <code>villoud.txt</code></em></li>
+                        <li class="list-group-item"><code>git status</code></li>
+                        <li class="list-group-item"><code>git diff villoud.txt</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Effectuer ce processus dans le repository <code>ipi-git-local</code> et <code>ipi-git-github</code> et constater à chaque étape le contenu des repository locaux et distants.
+            </div>
+            <div class="alert alert-warning small-font" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Faire la même chose sur <code>ipi-git-200-ex</code>. Quel est le problème ?
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="changements-pull" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Travailler à plusieurs</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Lorsque nous avons tous travaillé sur le même repository, nous avons rencontré un blocage nous empêchant d'envoyer nos changements sur le repository <code>ipi-git-200-ex</code>. 
+            </div>
+          </div>
+          <div class="container-fluid text-left small-font little-top-margin">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">1 - Faire des changements</li>
+                        <li class="list-group-item">2 - Préparer les changements pour le versioning</li>
+                        <li class="list-group-item">3 - Enregistrer les changements dans votre repository</li>
+                        <li class="list-group-item list-group-item-danger">4 - Envoyer ces changements sur le repository central</li>
+                        <li class="list-group-item">5 - Récupérer les changements effectués depuis ma dernière mise à jour</li>
+                        <li class="list-group-item list-group-item-success">6 - Envoyer ces changements sur le repository central</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>villoud.txt</code></em></li>
+                        <li class="list-group-item"><code>git add villoud.txt</code></li>
+                        <li class="list-group-item"><code>git commit -m "Création du fichier villoud.txt"</code></li>
+                        <li class="list-group-item"><code>git push</code></li>
+                        <li id="gitPull" class="list-group-item"><code>git pull --rebase</code></li>
+                        <li class="list-group-item" id="masterremote2ndpush"><code>git push -f</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Avant d'envoyer de nouveaux changements sur un repository, il faut d'abord s'assurer d'être à jour par rapport à ce dernier.
+            </div>
+            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Modifier le fichier <code>listeNom.txt</code> en ajoutant votre prénom devant votre nom et envoyer ce changement sur le repository central.
+            </div>
+            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Modifier le fichier <code>liste.txt</code> en ajoutant votre nom et prénom et envoyer ce changement sur le repository central.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="changements-conflits" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Gestion des conflits</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie le même fichier, et notamment la même ligne.
+            </div>
+          </div>
+          <div class="container-fluid">
+              <img src="img/gitconflicts.jpg" alt="" height="600">
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font little-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est alors nécessaire de résoudre manuellement le conflit lorsque Git n'a pas réussi à le faire automatiquement. Il faut être particulièrement attentif lors de la résolution de conflit afin de prendre en compte toutes les modifications et ne pas supprimer celles des autres personnes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="branches" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les branches</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Afin de systématiquement devoir récupérer les changements des autres (et régler les potentiels conflits) pour pousser les siens, on peut utiliser le mécanisme des <strong>branches</strong>. Cela permet également de pouvoir pousser son code même s'il n'est pas terminé.
+            </div>
+          </div>
+          <div class="container-fluid small-font big-top-margin">
+            <img src="img/gitbranches.png" alt="">
+            
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;A la création d'un repository, une seule branche existe, la branche <code>master</code>. Ce mécanisme de branches permet également de gérer le développement parallèle de plusieurs fonctionnalités, ou la maintenance des différentes versions d'un logiciel. Pour approfondir voir les <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">différents workflows</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="branches-commandes" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Manipuler les branches</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Voyons maintenant les commandes pour manipuler ces branches.
+            </div>
+          </div>
+          <div class="container-fluid small-font little-top-margin">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">Voir toutes les branches</li>
+                        <li class="list-group-item">Créer une nouvelle branche</li>
+                        <li class="list-group-item">Switcher votre copie de travail sur la branche</li>
+                        <li class="list-group-item">Fusionner le contenu d'une branche dans l'actuelle</li>
+                        <li class="list-group-item">Supprimer une branche</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>git branch</code></li>
+                        <li class="list-group-item"><code>git branch nom-branche</code></li>
+                        <li class="list-group-item"><code>git checkout nom-branche</code></li>
+                        <li class="list-group-item"><code>git merge nom-branche</code></li>
+                        <li class="list-group-item"><code>git branch -d nom-branche</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div id="createfixvotrenombranch" class="alert alert-warning small-font little-top-margin" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer la branche <code>fix-votrenom</code> dans <code>ipi-git-200-ex</code>, constater son existence sur votre repository local. Qu'en est-il sur le repository distant ? 
+            </div>
+            <div id="commitRemoveNomTxt"class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Switcher sur cette dernière et supprimer le fichier <code>votrenom.txt</code> puis commiter (sans pusher) ces modifications. Vérifier le contenu du repository distant.
+            </div>
+            <div id="commitIntermediaireMerge" class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Récupérer les modifications faites entre temps sur master et les incorporer sur votre branche.
+            </div>
+            <div id="mergeFixNomTxtMaster" class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Merger votre branche dans master
+            </div>
+            <div id="deleteFixNomTxt" class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Supprimer la branche <code>fix-votrenom</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="branches-pullrequest" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les Pull Request</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout le monde a mergé sa branche dans <code>master</code> sans aucune étape de validation. Ce processus est plutôt dangereux ! Au lieu de ça, on préférera utiliser le principe des <strong>Pull Requests</strong> que l'on peut créer sur Github et qui permet de faire des revues de codes avant d'effectivement merger son code dans <code>master</code>.
+            </div>
+          </div>
+          <div class="container-fluid small-font little-top-margin">
+            <img src="img/gitpr.png" height='500' alt="">
+          </div>
+            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer une branche <code>minibio-votrenom</code> à partir de <code>master</code> et la pousser sur le repository central. Créer une Pull Request de cette branche vers <code>master</code>.
+            </div>
+            <div class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer un fichier <code>minibio-votrenom.txt</code> dans laquelle vous écrirez votre minibio. Commiter et pusher votre fichier. Voir que votre Pull Request a été mise à jour. Affectez-la à votre voisin pour qu'il en fasse la revue et la commente. Puis la merger dans master.
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="backtracking" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Revenir en arrière</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il existe plusieurs cas pour lesquels un développeur souhaite revenir en arrière. Voyons les commandes en fonction des cas.
+            </div>
+          </div>
+          <div class="container-fluid small-font">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">Consulter un version antérieure du code</li>
+                        <li class="list-group-item list-group-item-danger">Supprimer toutes les modifications non commitées</li>
+                        <li class="list-group-item">Mettre de côté les modifs non commitées pour les appliquer plus tard</li>
+                        <li class="list-group-item list-group-item-danger">Revenir à une version antérieure (modifications non pushées)</li>
+                        <li class="list-group-item list-group-item-danger">Supprimer/Déplacer un fichier</li>
+                        <li class="list-group-item">Supprimer un fichier uniquement de git</li>
+                        <li class="list-group-item">Inverser un commit</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>git checkout nom-commit|nom-branche|nom-tag</code></li>
+                        <li class="list-group-item list-group-item-danger"><code>git reset --hard</code></li>
+                        <li class="list-group-item"><code>git stash =&gt; git stash pop</code></li>
+                        <li class="list-group-item list-group-item-danger"><code>git reset</code></li>
+                        <li class="list-group-item list-group-item-danger"><code>git rm fichier / git mv fichier fichier2</code></li>
+                        <li class="list-group-item"><code>git rm --cached fichier</code></li>
+                        <li class="list-group-item"><code>git revert mon-commit</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Quand vous utiliser un IDE prenant en charge Git, certaines de ces opérations sont faites toutes seules, lorsque vous supprimez ou déplacez un fichier.
+            </div>
+            <div class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Consulter l'état du code au premier commit</code>
+            </div>
+            <div class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer un fichier <code>test.txt</code> que vous préparez pour être versionné, puis le supprimer du versioning mais en le gardant localement</code>
+            </div>
+            <div class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Modifiez un fichier déjà versionné, puis mettez de côté les modifications. Les rétablir ensuite. Finir par supprimer toutes ces modifications.</code>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="autres" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Bonus</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Quelques commandes utiles
+            </div>
+          </div>
+          <div class="container-fluid small-font big-top-margin">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">Voir l'historique des commits</li>
+                        <li class="list-group-item">Voir l'historique des commits de manière graphique</li>
+                        <li class="list-group-item">Marquer une version/Voir les versions</li>
+                        <li class="list-group-item">Prendre un commit dans une autre branche et l’appliquer</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><code>git log </code></li>
+                        <li class="list-group-item"><code>git log --graph</code></li>
+                        <li class="list-group-item"><code>git tag -a nom-tag / git tag -l</code></li>
+                        <li class="list-group-item"><code>git cherry-pick mon-commit</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-warning small-font big-top-margin" role="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Expérimentez ces commandes dans votre repository
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <div id="autres-conseils" class="step slide">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+              <h1 class="display-3">Quelques conseils</h1>
+              <div class="container-fluid">
+                <div class="alert alert-primary small-font" role="alert">
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Quelques conseils et bonnes pratiques : 
+                </div>
+              </div>
+              <div class="container small-font text-left big-top-margin">
+                <ul class="list-group">
+                    <li class="list-group-item">Approfondir Git !!</li>
+                    <li class="list-group-item">Commiter tôt et souvent</li>
+                    <li class="list-group-item">Choisir un workflow et s'y tenir</li>
+                    <li class="list-group-item">Rédigez des messages de commits pertinents</li>
+                    <li class="list-group-item">Attention à ne pas commiter vos fichiers <em>persos</em></li>
+                    <li class="list-group-item">Et surtout pas de panique...</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <div id="autres-plusloin" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Pour aller plus loin</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Voici quelques ressources pour approfondir vos connaissances sur Git
+            </div>
+          </div>
+          <div class="container small-font text-left big-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="https://git-scm.com/book/en/v2" target="_branch">https://git-scm.com/book/en/v2</a></li>
+                <li class="list-group-item"><a href="https://learngitbranching.js.org/" target="_branch">https://learngitbranching.js.org/</a></li>
+                <li class="list-group-item"><a href="http://try.github.io/" target="_branch">http://try.github.io/</a></li>
+            </ul>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-success small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Évaluation : effectuer les 4 leçons gratuites du cours Git de <a href="https://www.codecademy.com/learn/learn-git" target="_branch">Codecademy</a> et m'envoyer un mail avec le lien vers votre profil (ex : https://www.codecademy.com/pjvilloud).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+<script src="js/impress.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highlight.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/gitgraph.js"></script>
+<script src="js/script.js"></script>
+
