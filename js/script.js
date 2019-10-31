@@ -77,7 +77,7 @@ $("#masterremote2ndpush").click(function(event) {
       mode: "compact"
     });
     masterRemote = graphRemote.branch("origin/master");
-    masterRemote.commit("Initial message");
+    masterRemote.commit("Initial commit");
     masterRemote.commit("Création du fichier dupond.txt");
     masterRemote.commit("Création du fichier villoud.txt");
     for (var i = 0; i < noms.length; i++) {
@@ -155,7 +155,7 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       mode: "compact"
     });
     master = graphLocal.branch("master");
-    master.commit("Initial message");
+    master.commit("Initial commit");
     master.commit("Création du fichier dupond.txt");
     for (var i = 0; i < noms.length; i++) {
       (function(index) {
