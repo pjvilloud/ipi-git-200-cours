@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>IPI - Présentation de Git</title>
-    
+
     <meta name="description" content="" />
     <meta name="author" content="Pierre-Julien VILLOUD" />
 
@@ -16,11 +16,11 @@
     <link href="css/idea.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gitgraph.js/1.13.0/gitgraph.min.css" rel="stylesheet" />
-    
+
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-    
+
 </head>
 
 <body class="impress-not-supported">
@@ -41,7 +41,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav nav-pills mr-auto">
-      
+
     </ul>
     <span class="navbar-text">
         <div class="btn-group" role="group" aria-label="Basic example">
@@ -94,10 +94,18 @@
                 <i class="fa fa-icon fa-info-circle"></i>&nbsp;Dans ce cours, nous allons parler de <strong>système de gestion de version</strong> de manière générale, et plus précisément de <strong>Git</strong>, qui est le plus répandu aujourd'hui.
             </div>
           </div>
-          <div class="container small-font  big-top-margin">
-            <img src="img/Git-Logo-2Color.png" alt="">
+          <div class="container small-font">
+            <div class="row">
+              <div class="col-6 wooclap-section">
+                <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://app.wooclap.com/events/SKZJSK/questions/5f6af5d99cacf9714763049c" width="100%"></iframe>
+              </div>
+              <div class="col-6 big-top-margin text-center">
+                <a href="https://www.wooclap.com/SKZJSK">Lien Wooclap</a>
+                <img src="img/Git-Logo-2Color.png" alt="" width="600" class="big-top-margin">
+              </div>
+            </div>
           </div>
-        
+
         </div>
       </div>
     </div>
@@ -164,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container big-top-margin">
+            <div class="container little-top-margin text-center">
                 <ul class="list-group">
                     <li class="list-group-item">Windows/Mac : <a href="https://git-scm.com/downloads" target="_blank">Git</a> ou <a href="https://desktop.github.com/" target="_blank">Github Desktop</a></li>
                     <li class="list-group-item">Linux : <a href="https://git-scm.com/downloads" target="_blank">Git</a> ou <code>sudo apt-get install git</code></li>
@@ -176,7 +184,7 @@
                 </ul>
             </div>
             <div class="container-fluid text-center">
-                <div class="alert alert-primary small-font big-top-margin" role="alert">
+                <div class="alert alert-primary small-font little-top-margin" role="alert">
                     <i class="fa fa-icon fa-info-circle"></i>&nbsp;Nous verrons en priorité l'utilisation en ligne de commande, permettant de faire toutes les commandes possibles
                 </div>
             </div>
@@ -189,7 +197,7 @@
                 <h1 class="display-3">Configuration</h1>
                 <div class="container-fluid">
                     <div class="alert alert-primary small-font" role="alert">
-                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Commençons par quelques opérations de configuration avec l'outil en ligne de commande.
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Commençons par quelques opérations de configuration avec l'outil en ligne de commande. Ces commandes sont exécutables dans un terminal classique sur Linux et Mac. Sur Windows, on utilisera Git Bash ou Git Shell.
                     </div>
                 </div>
                 <div class="container big-top-margin">
@@ -214,12 +222,12 @@
           <h1 class="display-3">Les <em>Repository</em></h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Un <strong>Repository</strong> rassemble la totalité des fichiers et répertoires associés à un projet, ainsi que l'historique de toutes les modifications effectuées (appellées <strong>commits</strong>). Les fichiers contenant les données sur l'historique sont situées dans le répertoire <code>.git</code>.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Un <strong>Repository</strong> ou <strong>dépôt</strong> rassemble la totalité des fichiers et répertoires associés à un projet, ainsi que l'historique de toutes les modifications effectuées (appellées <strong>commits</strong>). Les fichiers contenant les données sur l'historique sont situées dans le répertoire <code>.git</code>.
             </div>
           </div>
           <div class="container little-top-margin">
             <ul class="list-group">
-                <li class="list-group-item">Créer un nouveau <em>repository</em> local dans le répertoire courant</li>
+                <li class="list-group-item">Créer un nouveau <em>repository</em> ou <em>dépôt</em> local dans le répertoire courant</li>
                 <li class="list-group-item"><code>git init <em>nom_du_repository</em></code></li>
             </ul>
             <ul class="list-group little-top-margin">
@@ -231,7 +239,7 @@
             <div class="alert alert-warning small-font" role="alert" >
                 <i class="fa fa-icon fa-gamepad"></i>&nbsp;<span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git init ipi-git-local</code>'>Créer en ligne de commande un repository nommé <code>ipi-git-local</code></span>, <span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true"
                 data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-title="Création de repository sur Github" data-content='<ol>
-  <li>Dans le coin en haut à droite de votre avatar, cliquer sur <span class="fa-icon fa-icon-plus"></span> et sélectionner <strong>New repository</strong>.</li>
+  <li>Dans le coin en haut à droite de votre avatar, cliquer sur <i class="fa fa-icon fa-plus"></i> et sélectionner <strong>New repository</strong>.</li>
   <li>Nommer votre repository <code>ipi-git-github</code>.</li>
   <li>Ecrire une description sommaire.</li>
   <li>Sélectionner <strong>Initialize this repository with a README</strong>.</li>
@@ -239,10 +247,10 @@
 
 <p class="text-center"><img src="https://guides.github.com/activities/hello-world/create-new-repo.png" alt="new-repo-form" height="500"></p>
 
-<p>Cliquer sur <strong>Create repository</strong>.'>puis créer un repository sur github nommé <code>ipi-git-github</code></span>.
+<p>Cliquer sur <strong>Create repository</strong>.'>puis créer un repository sur github nommé <code>ipi-git-github</code></span> <button id="gitCreate" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button>.
             </div>
-            <div id="gitClone" class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;<span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/votreuser/ipi-git-github.git</code>'>Cloner le repository <code>ipi-git-github</code></span> ainsi que celui <span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/pjvilloud/ipi-git-200-ex.git</code>'>situé à l'adresse <code>https://github.com/pjvilloud/ipi-git-200-ex</code></span>
+            <div class="alert alert-warning small-font " popoverrole="alert">
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;<span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/votreuser/ipi-git-github.git</code>'>Cloner le repository <code>ipi-git-github</code></span> <button id="gitClone" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button> ainsi que celui <span data-toggle="popover" data-offset="0" data-trigger="hover click" data-placement="top" data-html="true" data-content='<code>git clone https://github.com/pjvilloud/ipi-git-200-ex.git</code>'>situé à l'adresse <code>https://github.com/pjvilloud/ipi-git-200-ex</code></span>
             </div>
           </div>
         </div>
@@ -275,8 +283,8 @@
                     <ul class="list-group">
                         <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>villoud.txt</code></em></li>
                         <li class="list-group-item"><code>git add villoud.txt</code></li>
-                        <li class="list-group-item" id="masterlocal1stcommit"><code>git commit -m "Création du fichier villoud.txt"</code></li>
-                        <li class="list-group-item" id="masterremote1stpush"><code>git push</code></li>
+                        <li class="list-group-item"><code>git commit -m "Création du fichier villoud.txt"</code> <button id="masterlocal1stcommit" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git push</code> <button id="masterremote1stpush" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><em>J'ajoute mon nom et mon prénom dans le fichier <code>villoud.txt</code></em></li>
                         <li class="list-group-item"><code>git status</code></li>
                         <li class="list-group-item"><code>git diff villoud.txt</code></li>
@@ -285,10 +293,7 @@
             </div>
           </div>
           <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Effectuer ce processus dans le repository <code>ipi-git-local</code> et <code>ipi-git-github</code> et constater à chaque étape le contenu des repository locaux et distants.
-            </div>
-            <div class="alert alert-warning small-font" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Faire la même chose sur <code>ipi-git-200-ex</code>. Quel est le problème ?
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Effectuer ce processus dans le repository <code>ipi-git-local</code> et <code>ipi-git-github</code> et constater à chaque étape le contenu des repository locaux et distants (le cas échéant).
             </div>
         </div>
       </div>
@@ -300,7 +305,7 @@
           <h1 class="display-3">Travailler à plusieurs</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Lorsque nous avons tous travaillé sur le même repository, nous avons rencontré un blocage nous empêchant d'envoyer nos changements sur le repository <code>ipi-git-200-ex</code>. 
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Si on essaye maintenant de travailler ensemble sur le même repository <code>ipi-git-200-ex</code>, nous allons rencontrer un blocage nous empêchant d'envoyer nos changements sur le repository.
             </div>
           </div>
           <div class="container-fluid text-left small-font little-top-margin">
@@ -310,19 +315,27 @@
                         <li class="list-group-item">1 - Faire des changements</li>
                         <li class="list-group-item">2 - Préparer les changements pour le versioning</li>
                         <li class="list-group-item">3 - Enregistrer les changements dans votre repository</li>
-                        <li class="list-group-item list-group-item-danger">4 - Envoyer ces changements sur le repository central</li>
+                        <li id="list-push" class="list-group-item">4 - Envoyer ces changements sur le repository central</li>
                         <li class="list-group-item">5 - Récupérer les changements effectués depuis ma dernière mise à jour</li>
-                        <li class="list-group-item list-group-item-success">6 - Envoyer ces changements sur le repository central</li>
+                        <li id="list-push2" class="list-group-item">6 - Envoyer ces changements sur le repository central</li>
                     </ul>
                 </div>
                 <div class="col-6">
                     <ul class="list-group">
                         <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>dupond.txt</code></em></li>
                         <li class="list-group-item"><code>git add dupond.txt</code></li>
-                        <li class="list-group-item"><code>git commit -m "Création du fichier dupond.txt"</code></li>
-                        <li class="list-group-item"><code>git push</code></li>
-                        <li id="gitPull" class="list-group-item"><code>git pull --rebase</code></li>
-                        <li class="list-group-item" id="masterremote2ndpush"><code>git push -f</code> ou <code>git push --force-with-lease</code></li>
+                        <li class="list-group-item"><code>git commit -m "Création du fichier dupond.txt"</code> <button id="masterteamcommitlocal" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git push <br>To github.com:pjvilloud/test.git<br>
+         ! [rejected]        master -> master (fetch first)<br>
+        error: impossible de pousser des références vers 'git@github.com:pjvilloud/ipi-git-200-ex.git'<br>
+        astuce: Les mises à jour ont été rejetées car la branche distante contient du travail que<br>
+        astuce: vous n'avez pas en local. Ceci est généralement causé par un autre dépôt poussé<br>
+        astuce: vers la même référence. Vous pourriez intégrer d'abord les changements distants<br>
+        astuce: (par exemple 'git pull ...') avant de pousser à nouveau.<br>
+        astuce: Voir la 'Note à propos des avances rapides' dans 'git push --help' pour plus d'information.<br>
+      </code>"><code>git push</code></span> <button id="masterteampusherror" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git pull</code> <button id="gitpull2" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git push</code> <button id="masterteampushsuccess" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                     </ul>
                 </div>
             </div>
@@ -331,11 +344,20 @@
             <div class="alert alert-primary small-font " role="alert">
                 <i class="fa fa-icon fa-info-circle"></i>&nbsp;Avant d'envoyer de nouveaux changements sur un repository, il faut d'abord s'assurer d'être à jour par rapport à ce dernier.
             </div>
-            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Modifier le fichier <code>listeNom.txt</code> en ajoutant votre prénom devant votre nom et envoyer ce changement sur le repository central.
-            </div>
-            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Modifier le fichier <code>liste.txt</code> en ajoutant votre nom et prénom et envoyer ce changement sur le repository central.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="changements-quizz" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Quizz</h1>
+          <div class="container-fluid text-center small-font little-top-margin">
+            <div class="row">
+                <div class="col-12 wooclap-section">
+                  <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://app.wooclap.com/events/SKZJSK/questions/5f6b1b1ca59a1f71c61abd06" width="100%"></iframe>
+                </div>
             </div>
           </div>
         </div>
@@ -369,12 +391,12 @@
           <h1 class="display-3">Les branches</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Afin de systématiquement devoir récupérer les changements des autres (et régler les potentiels conflits) pour pousser les siens, on peut utiliser le mécanisme des <strong>branches</strong>. Cela permet également de pouvoir pousser son code même s'il n'est pas terminé.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Afin d'éviter de systématiquement devoir récupérer les changements des autres (et régler les potentiels conflits) pour pousser les siens, on peut utiliser le mécanisme des <strong>branches</strong>. Cela permet également de pouvoir pousser son code même s'il n'est pas terminé.
             </div>
           </div>
           <div class="container-fluid small-font big-top-margin">
             <img src="img/gitbranches.png" alt="">
-            
+
           </div>
           <div class="container-fluid big-top-margin">
             <div class="alert alert-primary small-font " role="alert">
@@ -418,7 +440,7 @@
           </div>
           <div class="container-fluid little-top-margin">
             <div id="createfixvotrenombranch" class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer la branche <code>fix-votrenom</code> dans <code>ipi-git-200-ex</code>, constater son existence sur votre repository local. Qu'en est-il sur le repository distant ? 
+                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer la branche <code>fix-votrenom</code> dans <code>ipi-git-200-ex</code>, constater son existence sur votre repository local. Qu'en est-il sur le repository distant ?
             </div>
             <div id="commitRemoveNomTxt"class="alert alert-warning small-font " popoverrole="alert">
                 <i class="fa fa-icon fa-gamepad"></i>&nbsp;Switcher sur cette dernière et supprimer le fichier <code>votrenom.txt</code> puis commiter (sans pusher) ces modifications. Vérifier le contenu du repository distant.
@@ -557,7 +579,7 @@
               <h1 class="display-3">Quelques conseils</h1>
               <div class="container-fluid">
                 <div class="alert alert-primary small-font" role="alert">
-                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Quelques conseils et bonnes pratiques : 
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Quelques conseils et bonnes pratiques :
                 </div>
               </div>
               <div class="container small-font text-left big-top-margin">
@@ -611,4 +633,3 @@
 <script src="js/terminal.js"></script>
 <script src="js/gitgraph.js"></script>
 <script src="js/script.js"></script>
-
