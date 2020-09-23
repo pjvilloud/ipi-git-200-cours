@@ -364,21 +364,144 @@
       </div>
     </div>
 
+    <div id="changements-pull2" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Travailler à plusieurs (2)</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Nous nous sommes sortis assez facilement du problème précédent grâce au <em>merge</em> automatique de Git car nous travaillions sur des fichiers différents. Que se passe-t-il si nous travaillons sur le même fichier ?
+            </div>
+          </div>
+          <div class="container-fluid text-left small-font little-top-margin">
+            <div class="row">
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item">1 - Faire des changements sur le même fichier</li>
+                        <li class="list-group-item">2 - Préparer les changements pour le versioning</li>
+                        <li class="list-group-item">3 - Enregistrer les changements dans votre repository</li>
+                        <li class="list-group-item list-group-item-danger">4 - Envoyer ces changements sur le repository central</li>
+                        <li class="list-group-item">5 - Récupérer les changements effectués depuis ma dernière mise à jour</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><em>Je modifie le fichier <code>listeNom.txt</code> pour ajouter mon prénom à la suite de mon nom</em></li>
+                        <li class="list-group-item"><code>git add listeNom.txt</code></li>
+                        <li class="list-group-item"><code>git commit -m "Modification du fichier listeNom.txt"</code></li>
+                        <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git push <br>To github.com:pjvilloud/test.git<br>
+         ! [rejected]        master -> master (fetch first)<br>
+        error: impossible de pousser des références vers 'git@github.com:pjvilloud/ipi-git-200-ex.git'<br>
+        astuce: Les mises à jour ont été rejetées car la branche distante contient du travail que<br>
+        astuce: vous n'avez pas en local. Ceci est généralement causé par un autre dépôt poussé<br>
+        astuce: vers la même référence. Vous pourriez intégrer d'abord les changements distants<br>
+        astuce: (par exemple 'git pull ...') avant de pousser à nouveau.<br>
+        astuce: Voir la 'Note à propos des avances rapides' dans 'git push --help' pour plus d'information.<br>
+      </code>"><code>git push</code></span></li>
+                        <li class="list-group-item"><code>git pull</code></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;La fusion automatique a également fonctionné car même si Git constate que des modifications ont été faites en parallèle sur un même fichier, elles ne l'ont pas été sur la même ligne. <span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git pull
+                remote: Enumerating objects: 5, done.<br>
+                remote: Counting objects: 100% (5/5), done.<br>
+                remote: Compressing objects: 100% (2/2), done.<br>
+                remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0<br>
+                Dépaquetage des objets: 100% (3/3), fait.<br>
+                Depuis github.com:pjvilloud/ipi-git-200-ex<br>
+                   1a8c959..97ef45b  master     -> origin/master<br>
+                Fusion automatique de noms.txt<br>
+                CONFLIT (contenu) : Conflit de fusion dans noms.txt<br>
+                La fusion automatique a échoué ; réglez les conflits et validez le résultat.<br>
+</code>">Que se passe-t-il maintenant si vous ajouter votre nom à la fin du fichier <code>noms.txt</code> et que vous refaites les mêmes manipulations ?</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Dans ce cas, Git vous redonne la main afin que vous résolviez le conflit vous-même en vous fournissant les <span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>DURAND<br />
+<<<<<<< HEAD <br />
+VILLOUD<br />
+=======<br />
+FAURE<br />
+>>>>>>> 97ef45b2cc5335f7a15e88b6534bd42739912beb<br />
+</code>">modifications qui ont été faites des deux côtés.</span> -->
+
     <div id="changements-conflits" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
           <h1 class="display-3">Gestion des conflits</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie le même fichier, et notamment la même ligne.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents, ou sur des parties différentes d'un même fichier. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie la même ligne d'un même fichier. Git n'arrive pas à fusionner automatiquement les contenus, il vous redonne donc la main afin que vous résolviez le conflit vous-même en vous fournissant les modifications qui ont été faites des deux côtés :
             </div>
           </div>
-          <div class="container-fluid">
-              <img src="img/gitconflicts.jpg" alt="" height="600">
+          <div class="container-fluid text-left">
+            <div class="row">
+              <div class="col-3">
+                <span class="no-margin"><em>Fichier noms.txt</em></span><br>
+                <code>
+              DURAND<br />
+              <<<<<<< HEAD <br />
+              VILLOUD<br />
+              =======<br />
+              FAURE<br />
+              >>>>>>> 97ef45b...<br />
+              </code>
+              </div>
+              <div class="col-3">
+                <ul class="list-group small-font">
+                  <li class="list-group-item">&nbsp;</li>
+                  <li class="list-group-item">&nbsp;</li>
+                  <li class="list-group-item">Où pointe votre copie locale</li>
+                  <li class="list-group-item">Votre modification</li>
+                  <li class="list-group-item">Séparateur</li>
+                  <li class="list-group-item">Modification distante</li>
+                  <li class="list-group-item">hash du commit distant en cause</li>
+                </ul>
+              </div>
+              <div class="col-6 text-center">
+                <p>Pour résoudre le conflit : </p>
+                <ul class="list-group small-font">
+                  <li class="list-group-item">Modifier le fichier manuellement en faisant attention à bien garder les modifications distantes et les vôtres</li>
+                  <li class="list-group-item">Ne pas oublier de supprimer les éléments ajoutés par Git (<<<<<< HEAD...)</li>
+                  <li class="list-group-item"><code>git add noms.txt</code></li>
+                  <li class="list-group-item"><code>git commit</code></li>
+                  <li class="list-group-item"><code>git push</code></li>
+                </ul>
+              </div>
+            </div>
+
           </div>
           <div class="container-fluid">
             <div class="alert alert-primary small-font little-top-margin" role="alert">
                 <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est alors nécessaire de résoudre manuellement le conflit lorsque Git n'a pas réussi à le faire automatiquement. Il faut être particulièrement attentif lors de la résolution de conflit afin de prendre en compte toutes les modifications et ne pas supprimer celles des autres personnes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="changements-conflits2" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Gestion des conflits (2)</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Cela peut vite devenir compliqué et illisible lorsqu'on doit résoudre plusieurs conflits. On peut donc utiliser un logiciel tierce pour nous aider à le faire. La plupart des IDE ou des GUI pour Git possèdent leur outil.
+            </div>
+          </div>
+          <div class="container-fluid">
+            <img src="img/gitconflicts.jpg" alt="" height="600">
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font little-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Vous pouvez aussi paramétrer Git pour lancer un logiciel de résolution de conflits (comme <a href="https://meldmerge.org/" target="_blank">Meld</a>, voir <a href="https://meldmerge.org/help/resolving-conflicts.html" target="_blank">ici</a> pour un exemple de configuration) lorsqu'il détecte un conflit.
             </div>
           </div>
         </div>
