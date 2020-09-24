@@ -167,22 +167,79 @@ $("#gitpull2").click(function(event) {
 
 $("#createfixvotrenombranch").click(function(event) {
     fixVilloud = master.branch("fix-villoud");
+
+    $("#createBranchList").addClass("list-group-item-success");
+    $("#createfixvotrenombranch").removeClass("btn-primary").addClass("btn-success");
 });
 
 $("#commitRemoveNomTxt").click(function(event) {
-    fixVilloud.commit("Suppression de villoud.txt");
-    masterRemote.commit("Modification mineure");
+    fixVilloud.commit({
+      message:"Suppression de villoud.txt",
+      sha1: "c823be8"
+    });
+    masterRemote.commit({
+      message:"Modification mineure",
+      sha1: "c823be8"
+    });
+    $("#commitRemoveNomTxt").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#commitIntermediaire").click(function(event) {
+    master.commit({
+      message:"Modification mineure",
+      sha1: "c823be8"
+    });
+    $("#commitIntermediaire").removeClass("btn-primary").addClass("btn-success");
+
 });
 
 $("#commitIntermediaireMerge").click(function(event) {
-    master.commit("Modification mineure");
-    setTimeout(function() { master.merge(fixVilloud);}, 2000);
+    master.merge(fixVilloud, {
+      sha1: "396e5fc"
+    });
+    $("#commitIntermediaireMerge").removeClass("btn-primary").addClass("btn-success");
 
 });
 
 $("#mergeFixNomTxtMaster").click(function(event) {
-    fixVilloud.merge(master);
+    fixVilloud.merge(master, {
+      sha1: "9e5d299"
+    });
+    $("#mergeFixNomTxtMaster").removeClass("btn-primary").addClass("btn-success");
+
 });
+
+$("#deleteBranch").click(function(event) {
+    fixVilloud.delete();
+    $("#deleteBranch").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#deleteBranch").click(function(event) {
+    fixVilloud.delete();
+    $("#deleteBranch").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#finalGitPush").click(function(event) {
+    masterRemote.commit({
+      message:"Suppression de villoud.txt",
+      sha1: "c823be8"
+    });
+    masterRemote.commit({
+      message:"Merge branch 'master' into 'fix-villoud'",
+      sha1: "396e5fc"
+    });
+    masterRemote.commit({
+      message:"Merge branch 'fix-villoud' into 'master'",
+      sha1: "9e5d299"
+    });
+    $("#finalGitPush").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+
 
 $("#deleteFixNomTxt").click(function(event) {
     fixVilloud.delete();
@@ -226,7 +283,34 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       container: 'body'
     });
   }
-  if($(currentStep).attr("id") === "changements-pull"){
+  if($(currentStep).attr("id") === "branches-exemples"){
+    graphRemote = new GitGraph({
+      template: myTemplate,
+      reverseArrow: false,
+      orientation: "vertical",
+      elementId: "gitGraphRemote",
+      mode: "compact"
+    });
+    masterRemote = graphRemote.branch("origin/master");
+    masterRemote.commit({
+      "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+      "sha1": "f85c456"
+    })
+
+    graphLocal = new GitGraph({
+      template: myTemplate,
+      reverseArrow: false,
+      orientation: "vertical",
+      elementId: "gitGraphLocal",
+      mode: "compact"
+    });
+    master = graphLocal.branch("master");
+    master.commit({
+      "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+      "sha1": "f85c456"
+    })
+  }
+  else if($(currentStep).attr("id") === "changements-pull"){
     graphLocal = new GitGraph({
       template: myTemplate,
       reverseArrow: false,

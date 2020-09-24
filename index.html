@@ -95,17 +95,8 @@
             </div>
           </div>
           <div class="container small-font">
-            <div class="row">
-              <div class="col-6 wooclap-section">
-                <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://wooclap.com/SKZJSK" width="100%"></iframe>
-              </div>
-              <div class="col-6 big-top-margin text-center">
-                <a href="https://www.wooclap.com/SKZJSK">Lien Wooclap</a>
-                <img src="img/Git-Logo-2Color.png" alt="" width="600" class="big-top-margin">
-              </div>
-            </div>
+              <img src="img/Git-Logo-2Color.png" alt="" width="700" class="big-top-margin">
           </div>
-
         </div>
       </div>
     </div>
@@ -216,7 +207,7 @@
         </div>
     </div>
 
-    <div id="repositories" class="step slide">
+    <div id="introduction-repositories" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
           <h1 class="display-3">Les <em>Repository</em></h1>
@@ -349,21 +340,6 @@
       </div>
     </div>
 
-    <div id="changements-quizz" class="step slide">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid text-center">
-          <h1 class="display-3">Quizz</h1>
-          <div class="container-fluid text-center small-font little-top-margin">
-            <div class="row">
-                <div class="col-12 wooclap-section">
-                  <iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen src="https://wooclap.com/SKZJSK" width="100%"></iframe>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div id="changements-pull2" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
@@ -423,25 +399,37 @@
       </div>
     </div>
 
+    <div id="conflits" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les conflits</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents, ou sur des parties différentes d'un même fichier. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie la même ligne d'un même fichier.
+            </div>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <img src="img/memeconflicts.jpg" alt="">
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font little-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Git n'arrive pas à fusionner automatiquement les contenus qu'il faut fusionner manuellement...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Dans ce cas, Git vous redonne la main afin que vous résolviez le conflit vous-même en vous fournissant les <span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>DURAND<br />
-<<<<<<< HEAD <br />
-VILLOUD<br />
-=======<br />
-FAURE<br />
->>>>>>> 97ef45b2cc5335f7a15e88b6534bd42739912beb<br />
-</code>">modifications qui ont été faites des deux côtés.</span> -->
-
-    <div id="changements-conflits" class="step slide">
+    <div id="conflits-conflits" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
           <h1 class="display-3">Gestion des conflits</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents, ou sur des parties différentes d'un même fichier. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie la même ligne d'un même fichier. Git n'arrive pas à fusionner automatiquement les contenus, il vous redonne donc la main afin que vous résolviez le conflit vous-même en vous fournissant les modifications qui ont été faites des deux côtés :
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Lors d'un conflit, Git vous redonne donc la main afin que vous résolviez le(s) conflit(s) vous-même en fournissant à l'intérieur du fichier incriminé, les modifications qui ont été faites des deux côtés. Cela ressemble à ça :
             </div>
           </div>
-          <div class="container-fluid text-left">
+          <div class="container-fluid text-left big-top-margin">
             <div class="row">
               <div class="col-3">
                 <span class="no-margin"><em>Fichier noms.txt</em></span><br>
@@ -478,8 +466,8 @@ FAURE<br />
             </div>
 
           </div>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font little-top-margin" role="alert">
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font" role="alert">
                 <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est alors nécessaire de résoudre manuellement le conflit lorsque Git n'a pas réussi à le faire automatiquement. Il faut être particulièrement attentif lors de la résolution de conflit afin de prendre en compte toutes les modifications et ne pas supprimer celles des autres personnes.
             </div>
           </div>
@@ -487,7 +475,7 @@ FAURE<br />
       </div>
     </div>
 
-    <div id="changements-conflits2" class="step slide">
+    <div id="conflits-conflits2" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
           <h1 class="display-3">Gestion des conflits (2)</h1>
@@ -514,7 +502,7 @@ FAURE<br />
           <h1 class="display-3">Les branches</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Afin d'éviter de systématiquement devoir récupérer les changements des autres (et régler les potentiels conflits) pour pousser les siens, on peut utiliser le mécanisme des <strong>branches</strong>. Cela permet également de pouvoir pousser son code même s'il n'est pas terminé.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Afin notamment d'éviter de systématiquement devoir récupérer les changements des autres (et régler les potentiels conflits) pour pousser les siens, on peut utiliser le mécanisme des <strong>branches</strong>. Cela permet aussi de pouvoir pousser son code même s'il n'est pas terminé sans pour autant impacter les autres développeurs.
             </div>
           </div>
           <div class="container-fluid small-font big-top-margin">
@@ -548,6 +536,7 @@ FAURE<br />
                         <li class="list-group-item">Switcher votre copie de travail sur la branche</li>
                         <li class="list-group-item">Fusionner le contenu d'une branche dans l'actuelle</li>
                         <li class="list-group-item">Supprimer une branche</li>
+                        <li class="list-group-item">Pousser une branche locale sur le dépôt distant</li>
                     </ul>
                 </div>
                 <div class="col-6">
@@ -557,49 +546,59 @@ FAURE<br />
                         <li class="list-group-item"><code>git checkout nom-branche</code></li>
                         <li class="list-group-item"><code>git merge nom-branche</code></li>
                         <li class="list-group-item"><code>git branch -d nom-branche</code></li>
+                        <li class="list-group-item"><code>git push --set-upstream origin mabranche</code></li>
                     </ul>
                 </div>
-            </div>
-          </div>
-          <div class="container-fluid little-top-margin">
-            <div id="createfixvotrenombranch" class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer la branche <code>fix-votrenom</code> dans <code>ipi-git-200-ex</code>, constater son existence sur votre repository local. Qu'en est-il sur le repository distant ?
-            </div>
-            <div id="commitRemoveNomTxt"class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Switcher sur cette dernière et supprimer le fichier <code>votrenom.txt</code> puis commiter (sans pusher) ces modifications. Vérifier le contenu du repository distant.
-            </div>
-            <div id="commitIntermediaireMerge" class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Récupérer les modifications faites entre temps sur master et les incorporer sur votre branche.
-            </div>
-            <div id="mergeFixNomTxtMaster" class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Merger votre branche dans master
-            </div>
-            <div id="deleteFixNomTxt" class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Supprimer la branche <code>fix-votrenom</code>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="branches-pullrequest" class="step slide">
+    <div id="branches-exemples" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
-          <h1 class="display-3">Les Pull Request</h1>
+          <h1 class="display-3">Manipuler les branches (2)</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout le monde a mergé sa branche dans <code>master</code> sans aucune étape de validation. Ce processus est plutôt dangereux ! Au lieu de ça, on préférera utiliser le principe des <strong>Pull Requests</strong> que l'on peut créer sur Github et qui permet de faire des revues de codes avant d'effectivement merger son code dans <code>master</code>.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Prenons un cas concret
             </div>
           </div>
-          <div class="container-fluid small-font little-top-margin">
-            <img src="img/gitpr.png" height='500' alt="">
+          <div class="container-fluid little-top-margin small-font text-left">
+            <div class="row">
+              <div class="col-6">
+                <ul class="list-group">
+                  <li class="list-group-item">Créer la branche <code>fix-votrenom</code></li>
+                  <li class="list-group-item">Vérifier sur quelle branche vous êtes</li>
+                  <li class="list-group-item">Vous positionner sur cette nouvelle branche</li>
+                  <li class="list-group-item">Supprimer le fichier <code>votrenom.txt</code> et commiter la modification</li>
+                  <li class="list-group-item">Entre temps une modification a été faite sur <code>master</code>.</li>
+                  <li class="list-group-item">Incorporer les modifications de master sur <code>fix-votrenom</code></li>
+                  <li class="list-group-item">Répercuter les modifications de <code>fix-votrenom</code> sur <code>master</code></li>
+                  <li class="list-group-item">Supprimer la branche <code>fix-votrenom</code></li>
+                  <li class="list-group-item">Pousser <code>master</code></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-group">
+                  <li class="list-group-item"><code>git branch fix-villoud</code> <button class="btn btn-sm btn-primary" id="createfixvotrenombranch"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git branch</code></li>
+                  <li class="list-group-item"><code>git checkout fix-villoud</code></li>
+                  <li class="list-group-item"><code>git commit -am "Suppression du fichier villoud.txt"</code> <button class="btn btn-sm btn-primary" id="commitRemoveNomTxt"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout master</code> <code>git pull</code> <button class="btn btn-sm btn-primary" id="commitIntermediaire"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout fix-villoud</code> <code>git merge master</code> <button class="btn btn-sm btn-primary" id="commitIntermediaireMerge"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout master</code> <code>git merge fix-villoud</code> <button class="btn btn-sm btn-primary" id="mergeFixNomTxtMaster"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git branch -d fix-villoud</code> <button class="btn btn-sm btn-primary" id="deleteBranch"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git push</code> <button class="btn btn-sm btn-primary" id="finalGitPush"><i class="fa fa-icon fa-check"></i></button></li>
+                </ul>
+              </div>
+              <div class="container-fluid little-top-margin text-center">
+                <div class="alert alert-primary small-font" role="alert">
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;A noter que nous n'avons pas poussé sur <code>origin</code> la branche <code>fix-votrenom</code>, elle reste donc uniquement sur notre repository local. Il est possible de l'envoyer sur le repository distant avec <code>git push --set-upstream origin fix-votrenom</code>
+                </div>
+              </div>
+            </div>
           </div>
-            <div class="alert alert-warning small-font little-top-margin" popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer une branche <code>minibio-votrenom</code> à partir de <code>master</code> et la pousser sur le repository central. Créer une Pull Request de cette branche vers <code>master</code>.
-            </div>
-            <div class="alert alert-warning small-font " popoverrole="alert">
-                <i class="fa fa-icon fa-gamepad"></i>&nbsp;Créer un fichier <code>minibio-votrenom.txt</code> dans laquelle vous écrirez votre minibio. Commiter et pusher votre fichier. Voir que votre Pull Request a été mise à jour. Affectez-la à votre voisin pour qu'il en fasse la revue et la commente. Puis la merger dans master.
-            </div>
         </div>
       </div>
     </div>

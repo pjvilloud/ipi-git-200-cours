@@ -410,6 +410,10 @@ body {
   height: 65vh;
 }
 
+.wooclap-section-big {
+  height: 85vh;
+}
+
 span[data-toggle="popover"] {
   border: 1px dotted;
   border-radius: 5px;
