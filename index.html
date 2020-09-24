@@ -582,8 +582,8 @@
               <div class="col-6">
                 <ul class="list-group">
                   <li class="list-group-item"><code>git branch fix-villoud</code> <button class="btn btn-sm btn-primary" id="createfixvotrenombranch"><i class="fa fa-icon fa-check"></i></button></li>
-                  <li class="list-group-item"><code>git branch</code></li>
-                  <li class="list-group-item"><code>git checkout fix-villoud</code></li>
+                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>fix-villoud <br>* master</code>"><code>git branch</code></span></li>
+                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>* fix-villoud <br>master</code>"><code>git checkout fix-villoud</code></span></li>
                   <li class="list-group-item"><code>git commit -am "Suppression du fichier villoud.txt"</code> <button class="btn btn-sm btn-primary" id="commitRemoveNomTxt"><i class="fa fa-icon fa-check"></i></button></li>
                   <li class="list-group-item"><code>git checkout master</code> <code>git pull</code> <button class="btn btn-sm btn-primary" id="commitIntermediaire"><i class="fa fa-icon fa-check"></i></button></li>
                   <li class="list-group-item"><code>git checkout fix-villoud</code> <code>git merge master</code> <button class="btn btn-sm btn-primary" id="commitIntermediaireMerge"><i class="fa fa-icon fa-check"></i></button></li>
@@ -616,22 +616,22 @@
             <div class="row">
                 <div class="col-6">
                     <ul class="list-group">
-                        <li class="list-group-item">Consulter un version antérieure du code</li>
-                        <li class="list-group-item list-group-item-danger">Supprimer toutes les modifications non commitées</li>
+                        <li class="list-group-item">Consulter une autre <em>version</em> du code</li>
                         <li class="list-group-item">Mettre de côté les modifs non commitées pour les appliquer plus tard</li>
-                        <li class="list-group-item list-group-item-danger">Revenir à une version antérieure (modifications non pushées)</li>
-                        <li class="list-group-item list-group-item-danger">Supprimer/Déplacer un fichier</li>
+                        <li class="list-group-item list-group-item-warning">Annuler tous les commits suivants (garde les modifications localement)</li>
+                        <li class="list-group-item list-group-item-danger">Supprime tous les commits suivants (donc toutes les modifications)</li>
+                        <li class="list-group-item list-group-item-warning">Supprimer/Déplacer un fichier</li>
                         <li class="list-group-item">Supprimer un fichier uniquement de git</li>
                         <li class="list-group-item">Inverser un commit</li>
                     </ul>
                 </div>
                 <div class="col-6">
                     <ul class="list-group">
-                        <li class="list-group-item"><code>git checkout nom-commit|nom-branche|nom-tag</code></li>
-                        <li class="list-group-item list-group-item-danger"><code>git reset --hard</code></li>
+                        <li class="list-group-item"><code>git checkout [hash-commit|nom-branche|nom-tag]</code></li>
                         <li class="list-group-item"><code>git stash =&gt; git stash pop</code></li>
-                        <li class="list-group-item list-group-item-danger"><code>git reset</code></li>
-                        <li class="list-group-item list-group-item-danger"><code>git rm fichier / git mv fichier fichier2</code></li>
+                        <li class="list-group-item list-group-item-warning"><code>git reset [hash-commit]</code></li>
+                        <li class="list-group-item list-group-item-danger"><code>git reset --hard [hash-commit]</code></li>
+                        <li class="list-group-item list-group-item-warning"><code>git rm fichier / git mv fichier fichier2</code></li>
                         <li class="list-group-item"><code>git rm --cached fichier</code></li>
                         <li class="list-group-item"><code>git revert mon-commit</code></li>
                     </ul>
