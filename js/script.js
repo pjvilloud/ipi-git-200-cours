@@ -41,6 +41,7 @@ var graphLocal = new GitGraph({
   elementId: "gitGraphLocal",
   mode: "compact"
 });
+var graphFork;
 var graphRemote = new GitGraph({
   template: myTemplate,
   reverseArrow: false,
@@ -240,6 +241,115 @@ $("#finalGitPush").click(function(event) {
 });
 
 
+$("#forkRepo").click(function(event) {
+  graphRemote = new GitGraph({
+    template: myTemplate,
+    reverseArrow: false,
+    orientation: "vertical",
+    elementId: "gitGraphFork",
+    mode: "compact"
+  });
+  masterRemote = graphRemote.branch("votreuser:master (origin)");
+  masterRemote.commit({
+    message: "Initial commit",
+    sha1: "acf091c"
+  });
+  $("#forkRepo").removeClass("btn-outline-secondary").addClass("btn-outline-success");
+
+});
+
+$("#forkRepoClone").click(function(event) {
+  graphLocal = new GitGraph({
+    template: myTemplate,
+    reverseArrow: false,
+    orientation: "vertical",
+    elementId: "gitGraphLocal",
+    mode: "compact"
+  });
+  master = graphLocal.branch("master");
+  master.commit({
+    message: "Initial commit",
+    sha1: "acf091c"
+  });
+  $("#forkRepoClone").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#forkRepoCommit").click(function(event) {
+  master.commit({
+    message: "mes modifications",
+    sha1: "ae543d8"
+  });
+  $("#forkRepoCommit").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#forkRepoCommitPush").click(function(event) {
+  masterRemote.commit({
+    message: "mes modifications",
+    sha1: "ae543d8"
+  });
+  $("#forkRepoCommitPush").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#forkAddRemote").click(function(event) {
+  graphFork = new GitGraph({
+    template: myTemplate,
+    reverseArrow: false,
+    orientation: "vertical",
+    elementId: "gitGraphRemote",
+    mode: "compact"
+  });
+  masterFork = graphFork.branch("pjvilloud:master (upstream)");
+  masterFork.commit({
+    message: "Initial commit",
+    sha1: "acf091c"
+  });
+  masterFork.commit({
+    message: "Autres modifications",
+    sha1: "645de96"
+  });
+  $("#forkAddRemote").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#forkRepoMergeUpstream").click(function(event) {
+  master.commit({
+    message: "Autres modifications",
+    sha1: "645de96"
+  });
+  master.commit({
+    message: "Merge remote-tracking branch 'upstream/master'",
+    sha1: "da8645e"
+  });
+  $("#forkRepoMergeUpstream").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+$("#mergePR").click(function(event) {
+  masterFork.commit({
+    message: "Merge pull request #1 from votreuser/master",
+    sha1: ""
+  });
+  $("#mergePR").removeClass("btn-primary").addClass("btn-success");
+});
+
+$("#forkRepoCommitPush2").click(function(event) {
+  masterRemote.commit({
+    message: "Autres modifications",
+    sha1: "645de96"
+  });
+  masterRemote.commit({
+    message: "Merge remote-tracking branch 'upstream/master'",
+    sha1: "da8645e"
+  });
+  $("#forkRepoCommitPush2").removeClass("btn-primary").addClass("btn-success");
+
+});
+
+
+
 
 $("#deleteFixNomTxt").click(function(event) {
     fixVilloud.delete();
@@ -337,6 +447,20 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       sha1: "acf091c"
     });
 
+  }
+  else if($(currentStep).attr("id") === "autres-fork"){
+    graphFork = new GitGraph({
+      template: myTemplate,
+      reverseArrow: false,
+      orientation: "vertical",
+      elementId: "gitGraphRemote",
+      mode: "compact"
+    });
+    masterFork = graphFork.branch("pjvilloud:master");
+    masterFork.commit({
+      message: "Initial commit",
+      sha1: "acf091c"
+    });
   }
 
 });
