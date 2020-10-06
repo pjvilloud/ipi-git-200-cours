@@ -275,8 +275,8 @@
                     <ul class="list-group">
                         <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>villoud.txt</code></em></li>
                         <li class="list-group-item"><code>git add villoud.txt</code></li>
-                        <li class="list-group-item"><code>git commit -m "Création du fichier villoud.txt"</code> <button id="masterlocal1stcommit" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
-                        <li class="list-group-item"><code>git push</code> <button id="masterremote1stpush" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git commit -m "Création du fichier villoud.txt"</code> <button id="mainlocal1stcommit" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git push</code> <button id="mainremote1stpush" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><em>J'ajoute mon nom et mon prénom dans le fichier <code>villoud.txt</code></em></li>
                         <li class="list-group-item"><code>git status</code></li>
                         <li class="list-group-item"><code>git diff villoud.txt</code></li>
@@ -316,18 +316,18 @@
                     <ul class="list-group">
                         <li class="list-group-item"><em>Je crée le fichier portant mon nom<code>dupond.txt</code></em></li>
                         <li class="list-group-item"><code>git add dupond.txt</code></li>
-                        <li class="list-group-item"><code>git commit -m "Création du fichier dupond.txt"</code> <button id="masterteamcommitlocal" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git commit -m "Création du fichier dupond.txt"</code> <button id="mainteamcommitlocal" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git push <br>To github.com:pjvilloud/test.git<br>
-         ! [rejected]        master -> master (fetch first)<br>
+         ! [rejected]        main -> main (fetch first)<br>
         error: impossible de pousser des références vers 'git@github.com:pjvilloud/ipi-git-200-ex.git'<br>
         astuce: Les mises à jour ont été rejetées car la branche distante contient du travail que<br>
         astuce: vous n'avez pas en local. Ceci est généralement causé par un autre dépôt poussé<br>
         astuce: vers la même référence. Vous pourriez intégrer d'abord les changements distants<br>
         astuce: (par exemple 'git pull ...') avant de pousser à nouveau.<br>
         astuce: Voir la 'Note à propos des avances rapides' dans 'git push --help' pour plus d'information.<br>
-      </code>"><code>git push</code></span> <button id="masterteampusherror" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+      </code>"><code>git push</code></span> <button id="mainteampusherror" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><code>git pull</code> <button id="gitpull2" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
-                        <li class="list-group-item"><code>git push</code> <button id="masterteampushsuccess" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git push</code> <button id="mainteampushsuccess" class="btn btn-primary btn-sm"><i class="fa fa-icon fa-check"></i></button></li>
                     </ul>
                 </div>
             </div>
@@ -359,15 +359,17 @@
                         <li class="list-group-item">3 - Enregistrer les changements dans votre repository</li>
                         <li class="list-group-item list-group-item-danger">4 - Envoyer ces changements sur le repository central</li>
                         <li class="list-group-item">5 - Récupérer les changements effectués depuis ma dernière mise à jour</li>
+                        <li class="list-group-item list-group-item-success">6 - Envoyer ces changements sur le repository central</li>
+
                     </ul>
                 </div>
                 <div class="col-6">
                     <ul class="list-group">
-                        <li class="list-group-item"><em>Je modifie le fichier <code>listeNom.txt</code> pour ajouter mon prénom à la suite de mon nom</em></li>
-                        <li class="list-group-item"><code>git add listeNom.txt</code></li>
-                        <li class="list-group-item"><code>git commit -m "Modification du fichier listeNom.txt"</code></li>
+                        <li class="list-group-item"><em>Je modifie <code>listeNoms.txt</code> pour ajouter mon prénom à la suite de mon nom</em></li>
+                        <li class="list-group-item"><code>git add listeNoms.txt</code></li>
+                        <li class="list-group-item"><code>git commit -m "Modification du fichier listeNoms.txt"</code></li>
                         <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git push <br>To github.com:pjvilloud/test.git<br>
-         ! [rejected]        master -> master (fetch first)<br>
+         ! [rejected]        main -> main (fetch first)<br>
         error: impossible de pousser des références vers 'git@github.com:pjvilloud/ipi-git-200-ex.git'<br>
         astuce: Les mises à jour ont été rejetées car la branche distante contient du travail que<br>
         astuce: vous n'avez pas en local. Ceci est généralement causé par un autre dépôt poussé<br>
@@ -376,6 +378,7 @@
         astuce: Voir la 'Note à propos des avances rapides' dans 'git push --help' pour plus d'information.<br>
       </code>"><code>git push</code></span></li>
                         <li class="list-group-item"><code>git pull</code></li>
+                        <li class="list-group-item"><code>git push</code></li>
                     </ul>
                 </div>
             </div>
@@ -389,7 +392,7 @@
                 remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0<br>
                 Dépaquetage des objets: 100% (3/3), fait.<br>
                 Depuis github.com:pjvilloud/ipi-git-200-ex<br>
-                   1a8c959..97ef45b  master     -> origin/master<br>
+                   1a8c959..97ef45b  main     -> origin/main<br>
                 Fusion automatique de noms.txt<br>
                 CONFLIT (contenu) : Conflit de fusion dans noms.txt<br>
                 La fusion automatique a échoué ; réglez les conflits et validez le résultat.<br>
@@ -406,7 +409,7 @@
           <h1 class="display-3">Les conflits</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents, ou sur des parties différentes d'un même fichier. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifie la même ligne d'un même fichier.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Tout va bien lorsqu'on travaille sur des fichiers différents, ou sur des parties différentes d'un même fichier. Cependant, il peut y avoir des <strong>conflits</strong> lorsque plusieurs personnes modifient la même ligne d'un même fichier.
             </div>
           </div>
           <div class="container-fluid big-top-margin">
@@ -414,7 +417,7 @@
           </div>
           <div class="container-fluid big-top-margin">
             <div class="alert alert-primary small-font little-top-margin" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Git n'arrive pas à fusionner automatiquement les contenus qu'il faut fusionner manuellement...
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Git n'arrive pas à fusionner automatiquement les contenus qu'il faut alors fusionner manuellement...
             </div>
           </div>
         </div>
@@ -446,7 +449,7 @@
               <div class="col-3">
                 <ul class="list-group small-font">
                   <li class="list-group-item">&nbsp;</li>
-                  <li class="list-group-item">&nbsp;</li>
+                  <li class="list-group-item">Contenu sans conflit</li>
                   <li class="list-group-item">Où pointe votre copie locale</li>
                   <li class="list-group-item">Votre modification</li>
                   <li class="list-group-item">Séparateur</li>
@@ -512,7 +515,7 @@
           </div>
           <div class="container-fluid big-top-margin">
             <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;A la création d'un repository, une seule branche existe, la branche <code>master</code>. Ce mécanisme de branches permet également de gérer le développement parallèle de plusieurs fonctionnalités, ou la maintenance des différentes versions d'un logiciel. Pour approfondir voir les <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">différents workflows</a>.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;A la création d'un repository, une seule branche existe, la branche <code>main</code>. Ce mécanisme de branches permet également de gérer le développement parallèle de plusieurs fonctionnalités, ou la maintenance des différentes versions d'un logiciel. Pour approfondir voir les <a href="https://www.atlassian.com/git/tutorials/comparing-workflows" target="_blank">différents workflows</a>.
             </div>
           </div>
         </div>
@@ -573,22 +576,22 @@
                   <li class="list-group-item">Vérifier sur quelle branche vous êtes</li>
                   <li class="list-group-item">Vous positionner sur cette nouvelle branche</li>
                   <li class="list-group-item">Supprimer le fichier <code>votrenom.txt</code> et commiter la modification</li>
-                  <li class="list-group-item">Entre temps une modification a été faite sur <code>master</code>.</li>
-                  <li class="list-group-item">Incorporer les modifications de master sur <code>fix-votrenom</code></li>
-                  <li class="list-group-item">Répercuter les modifications de <code>fix-votrenom</code> sur <code>master</code></li>
+                  <li class="list-group-item">Entre temps une modification a été faite sur <code>main</code>.</li>
+                  <li class="list-group-item">Incorporer les modifications de main sur <code>fix-votrenom</code></li>
+                  <li class="list-group-item">Répercuter les modifications de <code>fix-votrenom</code> sur <code>main</code></li>
                   <li class="list-group-item">Supprimer la branche <code>fix-votrenom</code></li>
-                  <li class="list-group-item">Pousser <code>master</code></li>
+                  <li class="list-group-item">Pousser <code>main</code></li>
                 </ul>
               </div>
               <div class="col-6">
                 <ul class="list-group">
                   <li class="list-group-item"><code>git branch fix-villoud</code> <button class="btn btn-sm btn-primary" id="createfixvotrenombranch"><i class="fa fa-icon fa-check"></i></button></li>
-                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>fix-villoud <br>* master</code>"><code>git branch</code></span></li>
-                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>* fix-villoud <br>master</code>"><code>git checkout fix-villoud</code></span></li>
+                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>fix-villoud <br>* main</code>"><code>git branch</code></span></li>
+                  <li class="list-group-item"><span data-toggle="popover" data-template="<div class='popover large-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body text-left '></div></div>" data-offset="0" data-trigger="hover click" data-placement="bottom" data-html="true" data-content="<code>$ git branch <br>* fix-villoud <br>main</code>"><code>git checkout fix-villoud</code></span></li>
                   <li class="list-group-item"><code>git commit -am "Suppression du fichier villoud.txt"</code> <button class="btn btn-sm btn-primary" id="commitRemoveNomTxt"><i class="fa fa-icon fa-check"></i></button></li>
-                  <li class="list-group-item"><code>git checkout master</code> <code>git pull</code> <button class="btn btn-sm btn-primary" id="commitIntermediaire"><i class="fa fa-icon fa-check"></i></button></li>
-                  <li class="list-group-item"><code>git checkout fix-villoud</code> <code>git merge master</code> <button class="btn btn-sm btn-primary" id="commitIntermediaireMerge"><i class="fa fa-icon fa-check"></i></button></li>
-                  <li class="list-group-item"><code>git checkout master</code> <code>git merge fix-villoud</code> <button class="btn btn-sm btn-primary" id="mergeFixNomTxtMaster"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout main</code> <code>git pull</code> <button class="btn btn-sm btn-primary" id="commitIntermediaire"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout fix-villoud</code> <code>git merge main</code> <button class="btn btn-sm btn-primary" id="commitIntermediaireMerge"><i class="fa fa-icon fa-check"></i></button></li>
+                  <li class="list-group-item"><code>git checkout main</code> <code>git merge fix-villoud</code> <button class="btn btn-sm btn-primary" id="mergeFixNomTxtmain"><i class="fa fa-icon fa-check"></i></button></li>
                   <li class="list-group-item"><code>git branch -d fix-villoud</code> <button class="btn btn-sm btn-primary" id="deleteBranch"><i class="fa fa-icon fa-check"></i></button></li>
                   <li class="list-group-item"><code>git push</code> <button class="btn btn-sm btn-primary" id="finalGitPush"><i class="fa fa-icon fa-check"></i></button></li>
                 </ul>
@@ -677,10 +680,10 @@
                         <li class="list-group-item"><code>git stash</code></li>
                         <li class="list-group-item"><code>git checkout fix-villoud</code> <code>git commit -am "mes modifications"</code></li>
                         <li class="list-group-item"><code>git reset HEAD^</code></li>
-                        <li class="list-group-item"><code>git checkout master</code> <code>git stash pop</code> ...</li>
+                        <li class="list-group-item"><code>git checkout main</code> <code>git stash pop</code> ...</li>
                         <li class="list-group-item"><code>git revert [hash-commit]</code> ...</li>
                         <li class="list-group-item"><code>git checkout [hash-commit]</code></li>
-                        <li class="list-group-item"><code>git checkout master</code></li>
+                        <li class="list-group-item"><code>git checkout main</code></li>
                     </ul>
                 </div>
             </div>
@@ -752,9 +755,9 @@
                         <li class="list-group-item">Je clone le projet <code>votreuser/ipi-git-200-ex</code> en local</li>
                         <li class="list-group-item">Je fais des modifications que je commit et push</li>
                         <li class="list-group-item">Je lie mon repository local avec <code>pjvilloud/ipi-git-200-fork</code></li>
-                        <li class="list-group-item">Je fusionne la branche <code>master</code> de repository de référence qui contient une nouvelle modification, dans ma branche <code>master</code></li>
+                        <li class="list-group-item">Je fusionne la branche <code>main</code> de repository de référence qui contient une nouvelle modification, dans ma branche <code>main</code></li>
                         <li class="list-group-item">Je pousse les modifications sur mon repository</li>
-                        <li class="list-group-item">Je soumets mes modifications pour qu'elles puissent être fusionnées sur la branche <code>master</code> de <code>pjvilloud/ipi-git-200-fork</code></li>
+                        <li class="list-group-item">Je soumets mes modifications pour qu'elles puissent être fusionnées sur la branche <code>main</code> de <code>pjvilloud/ipi-git-200-fork</code></li>
                     </ul>
                 </div>
                 <div class="col-6">
@@ -763,9 +766,9 @@
                         <li class="list-group-item"><code>git clone https://github.com/votreuser/ipi-git-200-fork</code> <button id="forkRepoClone" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><code>git commit -am "mes modifications"</code> <button class="btn btn-sm btn-primary" id="forkRepoCommit"><i class="fa fa-icon fa-check"></i></button> <code>git push</code> <button id="forkRepoCommitPush" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><code>git remote add upstream  https:.../pjvilloud/ipi-git-200-fork</code><button id="forkAddRemote" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
-                        <li class="list-group-item"><code>git fetch upstream</code><br> <code>git merge upstream/master</code> <button id="forkRepoMergeUpstream" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item"><code>git fetch upstream</code><br> <code>git merge upstream/main</code> <button id="forkRepoMergeUpstream" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
                         <li class="list-group-item"><code>git push</code> <button id="forkRepoCommitPush2" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
-                        <li class="list-group-item">Création d'une Pull Request (ou Merge Request sur Gitlab) de <code>votreuser/ipi-git-200-fork:master</code> vers <code>pjvilloud/ipi-git-200-fork:master</code>. Validation <button id="mergePR" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
+                        <li class="list-group-item">Création d'une Pull Request (ou Merge Request sur Gitlab) de <code>votreuser/ipi-git-200-fork:main</code> vers <code>pjvilloud/ipi-git-200-fork:main</code>. Validation <button id="mergePR" class="btn btn-sm btn-primary"><i class="fa fa-icon fa-check"></i></button></li>
                     </ul>
                 </div>
             </div>

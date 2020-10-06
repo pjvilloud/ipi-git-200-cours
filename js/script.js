@@ -49,42 +49,42 @@ var graphRemote = new GitGraph({
   elementId: "gitGraphRemote",
   mode: "compact"
 });
-var master = graphLocal.branch("master");
-var masterRemote = graphRemote.branch("origin/master");
+var main = graphLocal.branch("main");
+var mainRemote = graphRemote.branch("origin/main");
 var fixVilloud;
 var noms = ['girard', 'durand', 'faure'];
 
 $("#gitCreate").click(function(event) {
-    masterRemote.commit({
+    mainRemote.commit({
       message: "Initial commit",
       sha1: "acf091c"
     });
     $("#gitCreate").removeClass("btn-primary").addClass("btn-success");
 });
 $("#gitClone").click(function(event) {
-    master.commit({
+    main.commit({
       message: "Initial commit",
       sha1: "acf091c"
     });
     $("#gitClone").removeClass("btn-primary").addClass("btn-success");
 });
-$("#masterlocal1stcommit").click(function(event) {
-    master.commit({
+$("#mainlocal1stcommit").click(function(event) {
+    main.commit({
       message: "Création du fichier villoud.txt",
       sha1: "5ddb756"
     });
-    $("#masterlocal1stcommit").removeClass("btn-primary").addClass("btn-success");
+    $("#mainlocal1stcommit").removeClass("btn-primary").addClass("btn-success");
 
 });
-$("#masterremote1stpush").click(function(event) {
-    masterRemote.commit({
+$("#mainremote1stpush").click(function(event) {
+    mainRemote.commit({
       message: "Création du fichier villoud.txt",
       sha1: "5ddb756"
     });
-    $("#masterremote1stpush").removeClass("btn-primary").addClass("btn-success");
+    $("#mainremote1stpush").removeClass("btn-primary").addClass("btn-success");
 });
 
-$("#masterteamcommitlocal").click(function(event) {
+$("#mainteamcommitlocal").click(function(event) {
   graphLocal = new GitGraph({
     template: myTemplate,
     reverseArrow: false,
@@ -92,34 +92,34 @@ $("#masterteamcommitlocal").click(function(event) {
     elementId: "gitGraphLocal",
     mode: "compact"
   });
-  master = graphLocal.branch("master");
-  master.commit({
+  main = graphLocal.branch("main");
+  main.commit({
     message: "Initial commit",
     sha1: "acf091c"
   });
-  master.commit({
+  main.commit({
     message: "Création du fichier dupond.txt",
     sha1: "5ea96de"
   });
   for (var i = 0; i < noms.length; i++) {
     (function(index) {
         setTimeout(function() {
-          masterRemote.commit("Création du fichier " + noms[index] + ".txt");
+          mainRemote.commit("Création du fichier " + noms[index] + ".txt");
         }, i * 2000);
     })(i);
   }
-  $("#masterteamcommitlocal").removeClass("btn-primary").addClass("btn-success");
+  $("#mainteamcommitlocal").removeClass("btn-primary").addClass("btn-success");
 
 });
 
-$("#masterteampusherror").click(function(event) {
+$("#mainteampusherror").click(function(event) {
   $("#list-push").addClass("list-group-item-danger");
-  $("#masterteampusherror").removeClass("btn-primary").addClass("btn-danger");
-  $("#masterteampusherror i").removeClass("fa-check").addClass("fa-times");
+  $("#mainteampusherror").removeClass("btn-primary").addClass("btn-danger");
+  $("#mainteampusherror i").removeClass("fa-check").addClass("fa-times");
 
 });
 
-$("#masterteampushsuccess").click(function(event) {
+$("#mainteampushsuccess").click(function(event) {
   graphRemote = new GitGraph({
     template: myTemplate,
     reverseArrow: false,
@@ -127,39 +127,39 @@ $("#masterteampushsuccess").click(function(event) {
     elementId: "gitGraphRemote",
     mode: "compact"
   });
-  masterRemote = graphRemote.branch("origin/master");
-  masterRemote.commit({
+  mainRemote = graphRemote.branch("origin/main");
+  mainRemote.commit({
     message: "Initial commit",
     sha1: "acf091c"
   });
-  masterRemote.commit({
+  mainRemote.commit({
     message: "Création du fichier dupond.txt",
     sha1: "5ea96de"
   });
   for (var i = 0; i < noms.length; i++) {
-    masterRemote.commit({
+    mainRemote.commit({
       message: "Création du fichier " + noms[i] + ".txt",
       sha1: "1de946" + i
     });
   }
-  masterRemote.commit({
-    "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+  mainRemote.commit({
+    "message": "Merge branch 'main' of github.com:pjvilloud/ipi-git-200-ex",
     "sha1": "f85c456"
   })
   $("#list-push2").addClass("list-group-item-success");
-  $("#masterteampushsuccess").removeClass("btn-primary").addClass("btn-success");
+  $("#mainteampushsuccess").removeClass("btn-primary").addClass("btn-success");
 
 });
 
 $("#gitpull2").click(function(event) {
     for (var i = 0; i < noms.length; i++) {
-      master.commit({
+      main.commit({
         message: "Création du fichier " + noms[i] + ".txt",
         sha1: "1de946" + i
       });
     }
-    master.commit({
-      "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+    main.commit({
+      "message": "Merge branch 'main' of github.com:pjvilloud/ipi-git-200-ex",
       "sha1": "f85c456"
     })
     $("#gitpull2").removeClass("btn-primary").addClass("btn-success");
@@ -167,7 +167,7 @@ $("#gitpull2").click(function(event) {
 });
 
 $("#createfixvotrenombranch").click(function(event) {
-    fixVilloud = master.branch("fix-villoud");
+    fixVilloud = main.branch("fix-villoud");
 
     $("#createBranchList").addClass("list-group-item-success");
     $("#createfixvotrenombranch").removeClass("btn-primary").addClass("btn-success");
@@ -178,7 +178,7 @@ $("#commitRemoveNomTxt").click(function(event) {
       message:"Suppression de villoud.txt",
       sha1: "c823be8"
     });
-    masterRemote.commit({
+    mainRemote.commit({
       message:"Modification mineure",
       sha1: "c823be8"
     });
@@ -187,7 +187,7 @@ $("#commitRemoveNomTxt").click(function(event) {
 });
 
 $("#commitIntermediaire").click(function(event) {
-    master.commit({
+    main.commit({
       message:"Modification mineure",
       sha1: "c823be8"
     });
@@ -196,18 +196,18 @@ $("#commitIntermediaire").click(function(event) {
 });
 
 $("#commitIntermediaireMerge").click(function(event) {
-    master.merge(fixVilloud, {
+    main.merge(fixVilloud, {
       sha1: "396e5fc"
     });
     $("#commitIntermediaireMerge").removeClass("btn-primary").addClass("btn-success");
 
 });
 
-$("#mergeFixNomTxtMaster").click(function(event) {
-    fixVilloud.merge(master, {
+$("#mergeFixNomTxtmain").click(function(event) {
+    fixVilloud.merge(main, {
       sha1: "9e5d299"
     });
-    $("#mergeFixNomTxtMaster").removeClass("btn-primary").addClass("btn-success");
+    $("#mergeFixNomTxtmain").removeClass("btn-primary").addClass("btn-success");
 
 });
 
@@ -224,16 +224,16 @@ $("#deleteBranch").click(function(event) {
 });
 
 $("#finalGitPush").click(function(event) {
-    masterRemote.commit({
+    mainRemote.commit({
       message:"Suppression de villoud.txt",
       sha1: "c823be8"
     });
-    masterRemote.commit({
-      message:"Merge branch 'master' into 'fix-villoud'",
+    mainRemote.commit({
+      message:"Merge branch 'main' into 'fix-villoud'",
       sha1: "396e5fc"
     });
-    masterRemote.commit({
-      message:"Merge branch 'fix-villoud' into 'master'",
+    mainRemote.commit({
+      message:"Merge branch 'fix-villoud' into 'main'",
       sha1: "9e5d299"
     });
     $("#finalGitPush").removeClass("btn-primary").addClass("btn-success");
@@ -249,8 +249,8 @@ $("#forkRepo").click(function(event) {
     elementId: "gitGraphFork",
     mode: "compact"
   });
-  masterRemote = graphRemote.branch("votreuser:master (origin)");
-  masterRemote.commit({
+  mainRemote = graphRemote.branch("votreuser:main (origin)");
+  mainRemote.commit({
     message: "Initial commit",
     sha1: "acf091c"
   });
@@ -266,8 +266,8 @@ $("#forkRepoClone").click(function(event) {
     elementId: "gitGraphLocal",
     mode: "compact"
   });
-  master = graphLocal.branch("master");
-  master.commit({
+  main = graphLocal.branch("main");
+  main.commit({
     message: "Initial commit",
     sha1: "acf091c"
   });
@@ -276,7 +276,7 @@ $("#forkRepoClone").click(function(event) {
 });
 
 $("#forkRepoCommit").click(function(event) {
-  master.commit({
+  main.commit({
     message: "mes modifications",
     sha1: "ae543d8"
   });
@@ -285,7 +285,7 @@ $("#forkRepoCommit").click(function(event) {
 });
 
 $("#forkRepoCommitPush").click(function(event) {
-  masterRemote.commit({
+  mainRemote.commit({
     message: "mes modifications",
     sha1: "ae543d8"
   });
@@ -301,12 +301,12 @@ $("#forkAddRemote").click(function(event) {
     elementId: "gitGraphRemote",
     mode: "compact"
   });
-  masterFork = graphFork.branch("pjvilloud:master (upstream)");
-  masterFork.commit({
+  mainFork = graphFork.branch("pjvilloud:main (upstream)");
+  mainFork.commit({
     message: "Initial commit",
     sha1: "acf091c"
   });
-  masterFork.commit({
+  mainFork.commit({
     message: "Autres modifications",
     sha1: "645de96"
   });
@@ -315,12 +315,12 @@ $("#forkAddRemote").click(function(event) {
 });
 
 $("#forkRepoMergeUpstream").click(function(event) {
-  master.commit({
+  main.commit({
     message: "Autres modifications",
     sha1: "645de96"
   });
-  master.commit({
-    message: "Merge remote-tracking branch 'upstream/master'",
+  main.commit({
+    message: "Merge remote-tracking branch 'upstream/main'",
     sha1: "da8645e"
   });
   $("#forkRepoMergeUpstream").removeClass("btn-primary").addClass("btn-success");
@@ -328,20 +328,20 @@ $("#forkRepoMergeUpstream").click(function(event) {
 });
 
 $("#mergePR").click(function(event) {
-  masterFork.commit({
-    message: "Merge pull request #1 from votreuser/master",
+  mainFork.commit({
+    message: "Merge pull request #1 from votreuser/main",
     sha1: ""
   });
   $("#mergePR").removeClass("btn-primary").addClass("btn-success");
 });
 
 $("#forkRepoCommitPush2").click(function(event) {
-  masterRemote.commit({
+  mainRemote.commit({
     message: "Autres modifications",
     sha1: "645de96"
   });
-  masterRemote.commit({
-    message: "Merge remote-tracking branch 'upstream/master'",
+  mainRemote.commit({
+    message: "Merge remote-tracking branch 'upstream/main'",
     sha1: "da8645e"
   });
   $("#forkRepoCommitPush2").removeClass("btn-primary").addClass("btn-success");
@@ -357,7 +357,7 @@ $("#deleteFixNomTxt").click(function(event) {
     for (var i = 0; i < noms.length; i++) {
       (function(index) {
           setTimeout(function() {
-            branches[index] = masterRemote.branch("fix-" + noms[index]);
+            branches[index] = mainRemote.branch("fix-" + noms[index]);
             branches[index].commit("Suppression de " + noms[index] + ".txt");
           }, i * 2000);
       })(i);
@@ -370,7 +370,7 @@ $("#deleteFixNomTxt").click(function(event) {
       branches[1].merge(branches[2]);
     }, 10000);
     setTimeout(function() {
-      branches[2].merge(masterRemote);
+      branches[2].merge(mainRemote);
     }, 12000);
 });
 
@@ -401,9 +401,9 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       elementId: "gitGraphRemote",
       mode: "compact"
     });
-    masterRemote = graphRemote.branch("origin/master");
-    masterRemote.commit({
-      "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+    mainRemote = graphRemote.branch("origin/main");
+    mainRemote.commit({
+      "message": "Merge branch 'main' of github.com:pjvilloud/ipi-git-200-ex",
       "sha1": "f85c456"
     })
 
@@ -414,9 +414,9 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       elementId: "gitGraphLocal",
       mode: "compact"
     });
-    master = graphLocal.branch("master");
-    master.commit({
-      "message": "Merge branch 'master' of github.com:pjvilloud/ipi-git-200-ex",
+    main = graphLocal.branch("main");
+    main.commit({
+      "message": "Merge branch 'main' of github.com:pjvilloud/ipi-git-200-ex",
       "sha1": "f85c456"
     })
   }
@@ -428,8 +428,8 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       elementId: "gitGraphLocal",
       mode: "compact"
     });
-    master = graphLocal.branch("master");
-    master.commit({
+    main = graphLocal.branch("main");
+    main.commit({
       message: "Initial commit",
       sha1: "acf091c"
     });
@@ -441,8 +441,8 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       elementId: "gitGraphRemote",
       mode: "compact"
     });
-    masterRemote = graphRemote.branch("master");
-    masterRemote.commit({
+    mainRemote = graphRemote.branch("main");
+    mainRemote.commit({
       message: "Initial commit",
       sha1: "acf091c"
     });
@@ -456,8 +456,8 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
       elementId: "gitGraphRemote",
       mode: "compact"
     });
-    masterFork = graphFork.branch("pjvilloud:master");
-    masterFork.commit({
+    mainFork = graphFork.branch("pjvilloud:main");
+    mainFork.commit({
       message: "Initial commit",
       sha1: "acf091c"
     });
