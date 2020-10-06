@@ -394,7 +394,7 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
     });
   }
   if($(currentStep).attr("id") === "branches-exemples"){
-    graphRemote = new GitGraph({
+    /*graphRemote = new GitGraph({
       template: myTemplate,
       reverseArrow: false,
       orientation: "vertical",
@@ -418,7 +418,7 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
     main.commit({
       "message": "Merge branch 'main' of github.com:pjvilloud/ipi-git-200-ex",
       "sha1": "f85c456"
-    })
+    })*/
   }
   else if($(currentStep).attr("id") === "changements-pull"){
     graphLocal = new GitGraph({
@@ -468,9 +468,16 @@ rootElement.addEventListener( "impress:stepenter", function(event) {
 rootElement.addEventListener( "impress:stepleave", function(event) {
 
   var currentStep = event.target;
-  if(currentStep.id === "branches-commandes"){
-    $("#gitGraphLocal").remove();
-    $("#gitGraphRemote").remove();
+  if(currentStep.id === "autres-retour" || currentStep.id === "bonus-fork"){
+    $("#gitGraphLocal").attr("height", 0);
+    $("#gitGraphLocal").attr("width", 0);
+    $("#gitGraphLocal").attr("style", "");
+    $("#gitGraphRemote").attr("width", 0);
+    $("#gitGraphRemote").attr("height", 0);
+    $("#gitGraphRemote").attr("style", "");
+    $("#gitGraphFork").attr("width", 0);
+    $("#gitGraphFork").attr("height", 0);
+    $("#gitGraphFork").attr("style", "");
   }
   $('#' + currentStep.id + ' [data-toggle="popover"]').popover('dispose');
 });
